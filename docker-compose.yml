@@ -1,0 +1,14 @@
+services:
+  weather-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: weather-cli
+    stdin_open: true
+    tty: true
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./app:/app
+    working_dir: /app
+#    command: python main.py --latitude 35.6895 --longitude 139.6917 --days 3
